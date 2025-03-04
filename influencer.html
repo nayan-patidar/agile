@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Influencer Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/influencer.js" defer></script>
+</head>
+<body>
+    <nav class="dashboard-nav">
+        <h1>Influencer Dashboard</h1>
+        <button id="logoutBtn">Logout</button>
+    </nav>
+
+    <div class="filters">
+        <input type="text" id="search" placeholder="Search companies...">
+        <select id="budgetFilter">
+            <option value="">All Budgets</option>
+            <option value="500">$500+</option>
+            <option value="1000">$1000+</option>
+        </select>
+        <select id="categoryFilter">
+            <option value="">All Categories</option>
+            <option value="fashion">Fashion</option>
+            <option value="tech">Tech</option>
+        </select>
+    </div>
+
+    <div id="companyList" class="company-list">
+        <!-- Companies will be loaded here -->
+    </div>
+
+    <template id="companyTemplate">
+        <div class="company-card">
+            <h3 class="company-name"></h3>
+            <p class="company-category"></p>
+            <p class="company-budget"></p>
+            <button class="apply-btn">Apply</button>
+            <button class="contact-btn">Contact</button>
+        </div>
+    </template>
+</body>
+</html>
