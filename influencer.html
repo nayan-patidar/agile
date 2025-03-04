@@ -1,47 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Influencer Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/influencer.js" defer></script>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: white;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #1e1e1e;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff4b2b;
+            box-shadow: 0px 4px 10px rgba(255, 75, 43, 0.2);
+        }
+
+        /* Dashboard Container */
+        .dashboard-container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Company Grid */
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* Company Card */
+        .company-card {
+            background: #1e1e1e;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(255, 75, 43, 0.2);
+            transition: 0.3s;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .company-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 75, 43, 0.3);
+        }
+
+        .company-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .company-card h3 {
+            font-size: 18px;
+            color: #ff4b2b;
+            margin-bottom: 8px;
+        }
+
+        .company-card p {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 12px;
+        }
+
+        .apply-btn {
+            background: #ff4b2b;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .apply-btn:hover {
+            background: #ff416c;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .company-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav class="dashboard-nav">
-        <h1>Influencer Dashboard</h1>
-        <button id="logoutBtn">Logout</button>
-    </nav>
-
-    <div class="filters">
-        <input type="text" id="search" placeholder="Search companies...">
-        <select id="budgetFilter">
-            <option value="">All Budgets</option>
-            <option value="500">$500+</option>
-            <option value="1000">$1000+</option>
-        </select>
-        <select id="categoryFilter">
-            <option value="">All Categories</option>
-            <option value="fashion">Fashion</option>
-            <option value="tech">Tech</option>
-        </select>
+    <div class="navbar">
+        Influencer Dashboard
     </div>
 
-    <div id="companyList" class="company-list">
-        <!-- Companies will be loaded here -->
-    </div>
+    <div class="dashboard-container">
+        <h2>Available Brand Collaborations</h2>
 
-    <template id="companyTemplate">
-        <div class="company-card">
-            <h3 class="company-name"></h3>
-            <p class="company-category"></p>
-            <p class="company-budget"></p>
-            <button class="apply-btn">Apply</button>
-            <button class="contact-btn">Contact</button>
+        <div class="company-grid">
+            <div class="company-card">
+                <img src="https://via.placeholder.com/80" alt="Company Logo" class="company-logo">
+                <h3>Nike</h3>
+                <p>Sports & Lifestyle brand. Looking for fitness influencers.</p>
+                <button class="apply-btn">Apply Now</button>
+            </div>
+
+            <div class="company-card">
+                <img src="https://via.placeholder.com/80" alt="Company Logo" class="company-logo">
+                <h3>Apple</h3>
+                <p>Tech & Innovation. Seeking content creators in tech reviews.</p>
+                <button class="apply-btn">Apply Now</button>
+            </div>
+
+            <div class="company-card">
+                <img src="https://via.placeholder.com/80" alt="Company Logo" class="company-logo">
+                <h3>Coca-Cola</h3>
+                <p>Beverage giant. Need lifestyle & food vloggers.</p>
+                <button class="apply-btn">Apply Now</button>
+            </div>
+
+            <div class="company-card">
+                <img src="https://via.placeholder.com/80" alt="Company Logo" class="company-logo">
+                <h3>Samsung</h3>
+                <p>Tech brand. Searching for smartphone & gadget reviewers.</p>
+                <button class="apply-btn">Apply Now</button>
+            </div>
+
+            <div class="company-card">
+                <img src="https://via.placeholder.com/80" alt="Company Logo" class="company-logo">
+                <h3>Adidas</h3>
+                <p>Sports & fashion. Looking for athletic influencers.</p>
+                <button class="apply-btn">Apply Now</button>
+            </div>
+
+            <div class="company-card">
+                <img src="https://via.placeholder.com/80" alt="Company Logo" class="company-logo">
+                <h3>Netflix</h3>
+                <p>Streaming service. Need entertainment & film influencers.</p>
+                <button class="apply-btn">Apply Now</button>
+            </div>
         </div>
-    </template>
+    </div>
 </body>
 </html>

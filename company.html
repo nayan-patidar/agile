@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Dashboard</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: white;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #1e1e1e;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff4b2b;
+            box-shadow: 0px 4px 10px rgba(255, 75, 43, 0.2);
+        }
+
+        /* Filter Section */
+        .filter-container {
+            background: #1e1e1e;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            border-bottom: 2px solid #ff4b2b;
+        }
+
+        .filter-container select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background: #ff4b2b;
+            color: white;
+            cursor: pointer;
+        }
+
+        .filter-container select:hover {
+            background: #ff416c;
+        }
+
+        /* Influencer Grid */
+        .influencer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Influencer Card */
+        .influencer-card {
+            background: #1e1e1e;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(255, 75, 43, 0.2);
+            transition: 0.3s;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .influencer-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 75, 43, 0.3);
+        }
+
+        .influencer-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .influencer-card h3 {
+            font-size: 18px;
+            color: #ff416c;
+            margin-bottom: 8px;
+        }
+
+        .influencer-card p {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 12px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .invite-btn, .applications-btn {
+            background: #ff4b2b;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .invite-btn:hover, .applications-btn:hover {
+            background: #ff416c;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .influencer-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        Company Dashboard
+    </div>
+
+    <!-- Filter Section -->
+    <div class="filter-container">
+        <select id="budget-filter">
+            <option value="">Filter by Budget</option>
+            <option value="low">Below $500</option>
+            <option value="mid">500$ - 1000$</option>
+            <option value="high">Above $1000</option>
+        </select>
+
+        <select id="reach-filter">
+            <option value="">Filter by Reach</option>
+            <option value="micro">1k - 10k Followers</option>
+            <option value="mid">10k - 100k Followers</option>
+            <option value="macro">100k+ Followers</option>
+        </select>
+    </div>
+
+    <!-- Influencer Grid -->
+    <div class="influencer-grid">
+        <div class="influencer-card">
+            <img src="https://via.placeholder.com/80" alt="Influencer Photo" class="influencer-photo">
+            <h3>John Doe</h3>
+            <p>Tech Reviewer | 50k Followers | $800 per campaign</p>
+            <div class="button-group">
+                <button class="invite-btn">Invite</button>
+                <button class="applications-btn">View Applications</button>
+            </div>
+        </div>
+
+        <div class="influencer-card">
+            <img src="https://via.placeholder.com/80" alt="Influencer Photo" class="influencer-photo">
+            <h3>Sarah Smith</h3>
+            <p>Fitness Influencer | 120k Followers | $1500 per campaign</p>
+            <div class="button-group">
+                <button class="invite-btn">Invite</button>
+                <button class="applications-btn">View Applications</button>
+            </div>
+        </div>
+
+        <div class="influencer-card">
+            <img src="https://via.placeholder.com/80" alt="Influencer Photo" class="influencer-photo">
+            <h3>Alex Johnson</h3>
+            <p>Food Blogger | 20k Followers | $600 per campaign</p>
+            <div class="button-group">
+                <button class="invite-btn">Invite</button>
+                <button class="applications-btn">View Applications</button>
+            </div>
+        </div>
+
+        <div class="influencer-card">
+            <img src="https://via.placeholder.com/80" alt="Influencer Photo" class="influencer-photo">
+            <h3>Emma Brown</h3>
+            <p>Travel Vlogger | 80k Followers | $1000 per campaign</p>
+            <div class="button-group">
+                <button class="invite-btn">Invite</button>
+                <button class="applications-btn">View Applications</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('budget-filter').addEventListener('change', function () {
+            alert('Filter by budget: ' + this.value);
+        });
+
+        document.getElementById('reach-filter').addEventListener('change', function () {
+            alert('Filter by reach: ' + this.value);
+        });
+    </script>
+</body>
+</html>
