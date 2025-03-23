@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand-Fluence - Home</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff4b2b, #ff416c);
+            color: white;
+            padding: 40px 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header p {
+            font-size: 18px;
+            margin-top: 5px;
+            opacity: 0.8;
+        }
+
+        /* Features Section */
+        .features {
+            display: flex;
+            justify-content: center;
+            margin: 50px auto;
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .feature-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            color: #ff416c;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Auth Button */
+        .auth-buttons {
+            margin-top: 30px;
+        }
+
+        .auth-buttons button {
+            background: #ff4b2b;
+            color: white;
+            font-size: 18px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .auth-buttons button:hover {
+            background: #ff416c;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            padding: 15px;
+            background: #222;
+            color: white;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to brand-Fluence</h1>
+        <p>Connecting Influencers with Advertisers</p>
+    </header>
+    
+    <section class="features">
+        <div class="feature-card">
+            <h3>For Influencers</h3>
+            <p>Find advertising opportunities that match your niche</p>
+        </div>
+        <div class="feature-card">
+            <h3>For Advertisers</h3>
+            <p>Discover perfect influencers for your brand</p>
+        </div>
+    </section>
+
+    <div class="auth-buttons">
+        <button onclick="window.location.href='login.html'">Get Started</button>
+    </div>
+
+    <footer>
+        <p>© 2025 brand-Fluence. All rights reserved.</p>
+    </footer>
+</body>
+</html>
